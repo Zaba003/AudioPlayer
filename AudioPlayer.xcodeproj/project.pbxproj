@@ -7,9 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D4A77F0E26E6629D002F263A /* TrackListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A77F0D26E6629D002F263A /* TrackListViewController.swift */; };
+		D4A77F1126E6704A002F263A /* 4CUS - Прекрасное далеко.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D4A77F1026E6704A002F263A /* 4CUS - Прекрасное далеко.mp3 */; };
+		D4A77F1C26E6707F002F263A /* 7б - Молодые ветра.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D4A77F1426E6707D002F263A /* 7б - Молодые ветра.mp3 */; };
+		D4A77F2026E6707F002F263A /* 063 А.КЛИМНЮК - АПРЕЛЬ (НОВАЯ ВЕРСИЯ).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D4A77F1826E6707E002F263A /* 063 А.КЛИМНЮК - АПРЕЛЬ (НОВАЯ ВЕРСИЯ).mp3 */; };
+		D4A77F2326E67126002F263A /* 67 Уходи.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D4A77F2226E67126002F263A /* 67 Уходи.mp3 */; };
+		D4A77F2526E6712F002F263A /* 122 Побуду один (Z-Vise Guitar ver.).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D4A77F2426E6712F002F263A /* 122 Побуду один (Z-Vise Guitar ver.).mp3 */; };
+		D4A77F2726E67404002F263A /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A77F2626E67404002F263A /* Track.swift */; };
+		D4A77F2926E6871F002F263A /* TrackDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A77F2826E6871F002F263A /* TrackDetailsViewController.swift */; };
 		D4B4B79126E5060A00954FF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B4B79026E5060A00954FF0 /* AppDelegate.swift */; };
 		D4B4B79326E5060A00954FF0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B4B79226E5060A00954FF0 /* SceneDelegate.swift */; };
-		D4B4B79526E5060A00954FF0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B4B79426E5060A00954FF0 /* ViewController.swift */; };
 		D4B4B79826E5060A00954FF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4B4B79626E5060A00954FF0 /* Main.storyboard */; };
 		D4B4B79A26E5060B00954FF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4B4B79926E5060B00954FF0 /* Assets.xcassets */; };
 		D4B4B79D26E5060B00954FF0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4B4B79B26E5060B00954FF0 /* LaunchScreen.storyboard */; };
@@ -17,10 +24,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D4A77F0D26E6629D002F263A /* TrackListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackListViewController.swift; sourceTree = "<group>"; };
+		D4A77F1026E6704A002F263A /* 4CUS - Прекрасное далеко.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "4CUS - Прекрасное далеко.mp3"; sourceTree = "<group>"; };
+		D4A77F1426E6707D002F263A /* 7б - Молодые ветра.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "7б - Молодые ветра.mp3"; sourceTree = "<group>"; };
+		D4A77F1826E6707E002F263A /* 063 А.КЛИМНЮК - АПРЕЛЬ (НОВАЯ ВЕРСИЯ).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "063 А.КЛИМНЮК - АПРЕЛЬ (НОВАЯ ВЕРСИЯ).mp3"; sourceTree = "<group>"; };
+		D4A77F2226E67126002F263A /* 67 Уходи.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "67 Уходи.mp3"; sourceTree = "<group>"; };
+		D4A77F2426E6712F002F263A /* 122 Побуду один (Z-Vise Guitar ver.).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "122 Побуду один (Z-Vise Guitar ver.).mp3"; sourceTree = "<group>"; };
+		D4A77F2626E67404002F263A /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		D4A77F2826E6871F002F263A /* TrackDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDetailsViewController.swift; sourceTree = "<group>"; };
 		D4B4B78D26E5060900954FF0 /* AudioPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4B4B79026E5060A00954FF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4B4B79226E5060A00954FF0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D4B4B79426E5060A00954FF0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D4B4B79726E5060A00954FF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D4B4B79926E5060B00954FF0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D4B4B79C26E5060B00954FF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -39,6 +53,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D4A77F0F26E66FD7002F263A /* Song */ = {
+			isa = PBXGroup;
+			children = (
+				D4A77F1026E6704A002F263A /* 4CUS - Прекрасное далеко.mp3 */,
+				D4A77F1426E6707D002F263A /* 7б - Молодые ветра.mp3 */,
+				D4A77F1826E6707E002F263A /* 063 А.КЛИМНЮК - АПРЕЛЬ (НОВАЯ ВЕРСИЯ).mp3 */,
+				D4A77F2226E67126002F263A /* 67 Уходи.mp3 */,
+				D4A77F2426E6712F002F263A /* 122 Побуду один (Z-Vise Guitar ver.).mp3 */,
+			);
+			path = Song;
+			sourceTree = "<group>";
+		};
 		D4B4B78426E5060900954FF0 = {
 			isa = PBXGroup;
 			children = (
@@ -58,14 +84,17 @@
 		D4B4B78F26E5060900954FF0 /* AudioPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				D4A77F0F26E66FD7002F263A /* Song */,
 				D4B4B79026E5060A00954FF0 /* AppDelegate.swift */,
 				D4B4B79226E5060A00954FF0 /* SceneDelegate.swift */,
-				D4B4B79426E5060A00954FF0 /* ViewController.swift */,
 				D4B4B79626E5060A00954FF0 /* Main.storyboard */,
+				D4A77F0D26E6629D002F263A /* TrackListViewController.swift */,
+				D4B4B7A426E5065500954FF0 /* AudioClass.swift */,
 				D4B4B79926E5060B00954FF0 /* Assets.xcassets */,
 				D4B4B79B26E5060B00954FF0 /* LaunchScreen.storyboard */,
 				D4B4B79E26E5060B00954FF0 /* Info.plist */,
-				D4B4B7A426E5065500954FF0 /* AudioClass.swift */,
+				D4A77F2626E67404002F263A /* Track.swift */,
+				D4A77F2826E6871F002F263A /* TrackDetailsViewController.swift */,
 			);
 			path = AudioPlayer;
 			sourceTree = "<group>";
@@ -96,6 +125,9 @@
 		D4B4B78526E5060900954FF0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					cell,
+				);
 				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
@@ -127,9 +159,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4A77F2526E6712F002F263A /* 122 Побуду один (Z-Vise Guitar ver.).mp3 in Resources */,
 				D4B4B79D26E5060B00954FF0 /* LaunchScreen.storyboard in Resources */,
+				D4A77F2026E6707F002F263A /* 063 А.КЛИМНЮК - АПРЕЛЬ (НОВАЯ ВЕРСИЯ).mp3 in Resources */,
+				D4A77F1126E6704A002F263A /* 4CUS - Прекрасное далеко.mp3 in Resources */,
 				D4B4B79A26E5060B00954FF0 /* Assets.xcassets in Resources */,
+				D4A77F1C26E6707F002F263A /* 7б - Молодые ветра.mp3 in Resources */,
 				D4B4B79826E5060A00954FF0 /* Main.storyboard in Resources */,
+				D4A77F2326E67126002F263A /* 67 Уходи.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,9 +177,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4B4B79526E5060A00954FF0 /* ViewController.swift in Sources */,
+				D4A77F0E26E6629D002F263A /* TrackListViewController.swift in Sources */,
+				D4A77F2726E67404002F263A /* Track.swift in Sources */,
 				D4B4B79126E5060A00954FF0 /* AppDelegate.swift in Sources */,
 				D4B4B79326E5060A00954FF0 /* SceneDelegate.swift in Sources */,
+				D4A77F2926E6871F002F263A /* TrackDetailsViewController.swift in Sources */,
 				D4B4B7A526E5065500954FF0 /* AudioClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -12,7 +12,7 @@ class AudioClass: NSObject {
     
     static let shared = AudioClass()
     
-    var playList: [String] = []
+    var playList: [String] = ["track1", "track2", "track3", "track4"]
     var trackCount: Int = 0
     var trackIndex: Int = 0
     var trackName: String = ""
@@ -32,8 +32,43 @@ class AudioClass: NSObject {
             return
         }
         let playerItem = AVPlayerItem(url: url)
-        player.replaceCurrentItem(with: playerItem)
-        player.play()
+        let asset = AVAsset(url: url)
+        let formatsKey = "availableMetadataFormats"
+        
+        asset.loadValuesAsynchronously(forKeys: [formatsKey]) {
+            var error: NSError? = nil
+            let status = asset.statusOfValue(forKey: formatsKey, error: &error)
+            if status == .loaded {
+                for format in asset.availableMetadataFormats {
+                    let metadata = asset.metadata(forFormat: format)
+                    // process format-specific metadata collection
+                }
+            }
+        }
+        // Get the previously loaded common metadata.
+        let metadata = asset.commonMetadata
+        let titleID = AVMetadataIdentifier.commonIdentifierTitle
+        let titleItems = AVMetadataItem.metadataItems(from: metadata,
+                                                      filteredByIdentifier: titleID)
+        guard let item = titleItems.first else { return }
+        // Process the title item.
+        
+        // Filter metadata to find the asset's artwork
+        let artworkItems = AVMetadataItem.metadataItems(from: metadata,
+                                                        filteredByIdentifier: .commonIdentifierArtwork)
+        
+        if let artworkItem = artworkItems.first {
+            // Coerce the value to a Data value using its dataValue property
+            if let imageData = artworkItem.dataValue {
+                let image = UIImage(data: imageData)
+                // Process the image.
+            } else {
+                // No image data was found.
+            }
+            
+            player.replaceCurrentItem(with: playerItem)
+            player.play()
+        }
     }
     
     func playPause() {
@@ -85,3 +120,4 @@ extension CMTime {
         return timeFormatString
     }
 }
+
