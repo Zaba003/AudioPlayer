@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00F88AC9060C441A46064F4A /* Pods_AudioPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00CB6A6E0205B8CFA47C0255 /* Pods_AudioPlayer.framework */; };
 		D4A77F0E26E6629D002F263A /* TrackListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A77F0D26E6629D002F263A /* TrackListViewController.swift */; };
 		D4A77F1126E6704A002F263A /* 4CUS - Прекрасное далеко.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D4A77F1026E6704A002F263A /* 4CUS - Прекрасное далеко.mp3 */; };
 		D4A77F1C26E6707F002F263A /* 7б - Молодые ветра.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D4A77F1426E6707D002F263A /* 7б - Молодые ветра.mp3 */; };
@@ -24,6 +25,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		00CB6A6E0205B8CFA47C0255 /* Pods_AudioPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AudioPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0FCC6C776B325A2E80F1177C /* Pods-AudioPlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioPlayer.release.xcconfig"; path = "Target Support Files/Pods-AudioPlayer/Pods-AudioPlayer.release.xcconfig"; sourceTree = "<group>"; };
+		5CE2D29B79E81FF45722B709 /* Pods-AudioPlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioPlayer.debug.xcconfig"; path = "Target Support Files/Pods-AudioPlayer/Pods-AudioPlayer.debug.xcconfig"; sourceTree = "<group>"; };
 		D4A77F0D26E6629D002F263A /* TrackListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackListViewController.swift; sourceTree = "<group>"; };
 		D4A77F1026E6704A002F263A /* 4CUS - Прекрасное далеко.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "4CUS - Прекрасное далеко.mp3"; sourceTree = "<group>"; };
 		D4A77F1426E6707D002F263A /* 7б - Молодые ветра.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "7б - Молодые ветра.mp3"; sourceTree = "<group>"; };
@@ -47,12 +51,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00F88AC9060C441A46064F4A /* Pods_AudioPlayer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		58FA24761CFFC23486CFCBCE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				00CB6A6E0205B8CFA47C0255 /* Pods_AudioPlayer.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9FA5B7EB92BF656B8620A79C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5CE2D29B79E81FF45722B709 /* Pods-AudioPlayer.debug.xcconfig */,
+				0FCC6C776B325A2E80F1177C /* Pods-AudioPlayer.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		D4A77F0F26E66FD7002F263A /* Song */ = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +93,8 @@
 			children = (
 				D4B4B78F26E5060900954FF0 /* AudioPlayer */,
 				D4B4B78E26E5060900954FF0 /* Products */,
+				9FA5B7EB92BF656B8620A79C /* Pods */,
+				58FA24761CFFC23486CFCBCE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -88,12 +113,12 @@
 				D4B4B79026E5060A00954FF0 /* AppDelegate.swift */,
 				D4B4B79226E5060A00954FF0 /* SceneDelegate.swift */,
 				D4B4B79626E5060A00954FF0 /* Main.storyboard */,
-				D4A77F0D26E6629D002F263A /* TrackListViewController.swift */,
 				D4B4B7A426E5065500954FF0 /* AudioClass.swift */,
 				D4B4B79926E5060B00954FF0 /* Assets.xcassets */,
 				D4B4B79B26E5060B00954FF0 /* LaunchScreen.storyboard */,
 				D4B4B79E26E5060B00954FF0 /* Info.plist */,
 				D4A77F2626E67404002F263A /* Track.swift */,
+				D4A77F0D26E6629D002F263A /* TrackListViewController.swift */,
 				D4A77F2826E6871F002F263A /* TrackDetailsViewController.swift */,
 			);
 			path = AudioPlayer;
@@ -106,9 +131,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D4B4B7A126E5060B00954FF0 /* Build configuration list for PBXNativeTarget "AudioPlayer" */;
 			buildPhases = (
+				98BEAAC4AD3AA4F5F3107D0B /* [CP] Check Pods Manifest.lock */,
 				D4B4B78926E5060900954FF0 /* Sources */,
 				D4B4B78A26E5060900954FF0 /* Frameworks */,
 				D4B4B78B26E5060900954FF0 /* Resources */,
+				3E43A5636D01595F10887B40 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -171,6 +198,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3E43A5636D01595F10887B40 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AudioPlayer/Pods-AudioPlayer-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AudioPlayer/Pods-AudioPlayer-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AudioPlayer/Pods-AudioPlayer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		98BEAAC4AD3AA4F5F3107D0B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AudioPlayer-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D4B4B78926E5060900954FF0 /* Sources */ = {
@@ -326,6 +395,7 @@
 		};
 		D4B4B7A226E5060B00954FF0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5CE2D29B79E81FF45722B709 /* Pods-AudioPlayer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -345,6 +415,7 @@
 		};
 		D4B4B7A326E5060B00954FF0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0FCC6C776B325A2E80F1177C /* Pods-AudioPlayer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

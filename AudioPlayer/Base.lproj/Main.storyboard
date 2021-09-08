@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="trackName" textLabel="UYv-Z7-KJr" detailTextLabel="zHk-sA-7oh" style="IBUITableViewCellStyleSubtitle" id="E0c-kv-0kD">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="trackName" textLabel="UYv-Z7-KJr" style="IBUITableViewCellStyleDefault" id="E0c-kv-0kD">
                                 <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="E0c-kv-0kD" id="2My-bw-tfR">
@@ -25,16 +25,9 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UYv-Z7-KJr">
-                                            <rect key="frame" x="20" y="6" width="25" height="14.5"/>
+                                            <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zHk-sA-7oh">
-                                            <rect key="frame" x="20" y="22.5" width="40.5" height="13.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -77,10 +70,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <slider contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="fK1-y0-pbr">
-                                        <rect key="frame" x="-2" y="424.5" width="378" height="202"/>
+                                        <rect key="frame" x="-2" y="424.5" width="378" height="122"/>
                                     </slider>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="3Ln-kg-pc8">
-                                        <rect key="frame" x="5" y="659.5" width="364" height="20.5"/>
+                                        <rect key="frame" x="5" y="579.5" width="364" height="20.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zaw-k1-OXp">
                                                 <rect key="frame" x="0.0" y="0.0" width="293.5" height="20.5"/>
@@ -96,6 +89,9 @@
                                             </label>
                                         </subviews>
                                     </stackView>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="6WA-9w-hlX">
+                                        <rect key="frame" x="18" y="645.5" width="338" height="31"/>
+                                    </slider>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="53" translatesAutoresizingMaskIntoConstraints="NO" id="HhC-oD-tZo">
                                         <rect key="frame" x="62.5" y="704" width="249" height="30"/>
                                         <subviews>
@@ -126,6 +122,8 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="3Ln-kg-pc8" firstAttribute="leading" secondItem="Gau-k2-Kdy" secondAttribute="leading" constant="5" id="NK4-ax-DYD"/>
+                                    <constraint firstItem="6WA-9w-hlX" firstAttribute="leading" secondItem="Gau-k2-Kdy" secondAttribute="leading" constant="20" id="V74-iT-Cih"/>
+                                    <constraint firstAttribute="trailing" secondItem="6WA-9w-hlX" secondAttribute="trailing" constant="20" id="jKF-7i-56o"/>
                                     <constraint firstAttribute="trailing" secondItem="3Ln-kg-pc8" secondAttribute="trailing" constant="5" id="vyK-mn-ewZ"/>
                                 </constraints>
                             </stackView>

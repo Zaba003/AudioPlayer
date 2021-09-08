@@ -10,10 +10,9 @@ import AVKit
 
 class AudioClass: NSObject {
     
-    static let shared = AudioClass()
+static let shared = AudioClass()
     
-    var playList: [String] = ["track1", "track2", "track3", "track4"]
-    var trackCount: Int = 0
+    public var playList = [Track]()
     var trackIndex: Int = 0
     var trackName: String = ""
     var trackUrl: String?
@@ -120,4 +119,5 @@ extension CMTime {
         return timeFormatString
     }
 }
+
 

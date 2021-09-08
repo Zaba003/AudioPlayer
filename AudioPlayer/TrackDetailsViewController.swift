@@ -26,5 +26,6 @@ class TrackDetailsViewController: UIViewController {
     @IBAction func nextButton(_ sender: Any) {
     }
     @IBAction func playPauseButton(_ sender: Any) {
+        
     }
 }
