@@ -13,7 +13,7 @@ class SearchMusicViewController: UITableViewController {
     var networkService = NetworkService()
     private var timer: Timer?
     var tracks = AudioClass.shared.playList
-    var searchController = UISearchController(searchResultsController: nil)
+    let searchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +27,7 @@ class SearchMusicViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "trackName", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath)
         
         let track = tracks[indexPath.row]
         cell.textLabel?.text = "\(track.trackName)\n\(String(describing: track.artistName))"
@@ -82,11 +82,11 @@ class SearchMusicViewController: UITableViewController {
     // MARK: - Navigation
     
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let indexPath = tableView.indexPathForSelectedRow else { return }
-        let trackDetailVC = segue.destination as! TrackDetailsViewController
-        trackDetailVC.track = tracks[indexPath.row]
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        guard let indexPath = tableView.indexPathForSelectedRow else { return }
+//        let trackDetailVC = segue.destination as! TrackDetailsViewController
+//        trackDetailVC.track = tracks[indexPath.row]
+//    }
     
 }
 

@@ -9,15 +9,15 @@ import Foundation
 
 // MARK: - response
 struct SearchResponce: Decodable {
-    let resultCount: Int
-    let results: [Track]
+    var resultCount: Int
+    var results: [Track]
 }
 
 struct Track: Decodable {
-    let trackName: String
-    let collectionName: String?
-    let artistName: String
-    let artWorkUrl100: String?
-    let previewUrl: String
+    var trackName: String
+    var collectionName: String?
+    var artistName: String
+    var artworkUrl100: String?
+    var previewUrl: String?
 }
 
