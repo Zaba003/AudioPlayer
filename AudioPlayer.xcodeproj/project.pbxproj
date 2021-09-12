@@ -28,6 +28,8 @@
 		D47B9D2C26E9CC8E00E6DD16 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D47B9D2B26E9CC8E00E6DD16 /* Main.storyboard */; };
 		D47B9D3126EA028000E6DD16 /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47B9D3026EA028000E6DD16 /* TrackCell.swift */; };
 		D48FC90A26EE20C4003A34D3 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = D48FC90926EE20C4003A34D3 /* URLImage */; };
+		D48FC90C26EE4A59003A34D3 /* NewLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48FC90B26EE4A59003A34D3 /* NewLibrary.swift */; };
+		D48FC90E26EE5934003A34D3 /* URLImageStore in Frameworks */ = {isa = PBXBuildFile; productRef = D48FC90D26EE5934003A34D3 /* URLImageStore */; };
 		D4A77F0E26E6629D002F263A /* SearchMusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A77F0D26E6629D002F263A /* SearchMusicViewController.swift */; };
 		D4A77F2726E67404002F263A /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A77F2626E67404002F263A /* Track.swift */; };
 		D4B4B79126E5060A00954FF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B4B79026E5060A00954FF0 /* AppDelegate.swift */; };
@@ -62,6 +64,7 @@
 		D47B9D2926E9C6E000E6DD16 /* SearchViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchViewController.storyboard; sourceTree = "<group>"; };
 		D47B9D2B26E9CC8E00E6DD16 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		D47B9D3026EA028000E6DD16 /* TrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
+		D48FC90B26EE4A59003A34D3 /* NewLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLibrary.swift; sourceTree = "<group>"; };
 		D4A77F0D26E6629D002F263A /* SearchMusicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMusicViewController.swift; sourceTree = "<group>"; };
 		D4A77F2626E67404002F263A /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		D4B4B78D26E5060900954FF0 /* AudioPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,6 +84,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D48FC90A26EE20C4003A34D3 /* URLImage in Frameworks */,
+				D48FC90E26EE5934003A34D3 /* URLImageStore in Frameworks */,
 				00F88AC9060C441A46064F4A /* Pods_AudioPlayer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -211,6 +215,7 @@
 				D442901326EDC123006624D0 /* Library.swift */,
 				D47B9D2426E9C48D00E6DD16 /* ViewController.swift */,
 				D47B9D2626E9C5EB00E6DD16 /* Helpers */,
+				D48FC90B26EE4A59003A34D3 /* NewLibrary.swift */,
 			);
 			path = AudioPlayer;
 			sourceTree = "<group>";
@@ -235,6 +240,7 @@
 			name = AudioPlayer;
 			packageProductDependencies = (
 				D48FC90926EE20C4003A34D3 /* URLImage */,
+				D48FC90D26EE5934003A34D3 /* URLImageStore */,
 			);
 			productName = AudioPlayer;
 			productReference = D4B4B78D26E5060900954FF0 /* AudioPlayer.app */;
@@ -361,6 +367,7 @@
 				D4B4B7A526E5065500954FF0 /* AudioClass.swift in Sources */,
 				D47B9D1B26E9BD4900E6DD16 /* SearchPresenter.swift in Sources */,
 				D47B9D0326E9B34900E6DD16 /* NetworkService.swift in Sources */,
+				D48FC90C26EE4A59003A34D3 /* NewLibrary.swift in Sources */,
 				D47B9D3126EA028000E6DD16 /* TrackCell.swift in Sources */,
 				D442900926EA2405006624D0 /* FooterView.swift in Sources */,
 			);
@@ -575,6 +582,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D4C7C83826EE0AD9009E5D85 /* XCRemoteSwiftPackageReference "url-image" */;
 			productName = URLImage;
+		};
+		D48FC90D26EE5934003A34D3 /* URLImageStore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D4C7C83826EE0AD9009E5D85 /* XCRemoteSwiftPackageReference "url-image" */;
+			productName = URLImageStore;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

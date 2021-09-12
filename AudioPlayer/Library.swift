@@ -7,6 +7,7 @@
 
 import SwiftUI
 import URLImage
+import URLImageStore
 
 struct Library: View {
     
@@ -42,60 +43,67 @@ struct Library: View {
                         })
                     }
                 }.padding().frame(height: 70)
-                Divider().padding(.leading).padding(.trailing)
                 
-                List{
+                List {
                     ForEach(tracks) { track in
                         LibraryCell(cell: track).gesture(
                             LongPressGesture()
-                                
                                 .onEnded { _ in
+                                    print("Pressed!")
                                     self.track = track
                                     self.showingAlert = true
                                 }
-                                
                                 .simultaneously(with: TapGesture()
                                                     .onEnded { _ in
-                                                        let keyWindow = UIApplication.shared.connectedScenes.filter ({ $0.activationState == .foregroundActive
-                                                        }).map({$0 as? UIWindowScene}).compactMap ({ $0
-                                                        }).first?.windows.filter({$0.isKeyWindow}).first
-                                                        
+                                                        //                                        let keyWindow = UIApplication.shared.connectedScenes.filter({
+                                                        //                                            $0.activationState == .foregroundActive
+                                                        //                                        }).map({$0 as? UIWindowScene}).compactMap({
+                                                        //                                            $0
+                                                        //                                            }).first?.windows.filter({$0.isKeyWindow}).first
+                                                        let keyWindow = UIApplication.shared.connectedScenes
+                                                            .filter({$0.activationState == .foregroundActive})
+                                                            .map({$0 as? UIWindowScene})
+                                                            .compactMap({$0})
+                                                            .first?.windows
+                                                            .filter({$0.isKeyWindow}).first
                                                         let tabBarVC = keyWindow?.rootViewController as? MainTabBarController
                                                         tabBarVC?.trackDetailView.delegate = self
+                                                        
                                                         
                                                         self.track = track
                                                         self.tabBarDelegate?.maximizeTrackDetailController(viewModel: self.track)
                                                     }))
-                    }.onDelete(perform: delete)
+                    }
+                    .onDelete(perform: delete)
+                    
                 }
             }.actionSheet(isPresented: $showingAlert, content: {
-                ActionSheet(title: Text("Вы уверены, что хотите удалить этот трек?"), buttons: [.destructive(Text("Удалить"), action: {
-                    self.delete(at: self.track)
+                ActionSheet(title: Text("Are you sure you want to delete this track?"), buttons: [.destructive(Text("Delete"), action: {
+                    print("Deleting: \(self.track.trackName)")
+                    self.delete(track: self.track)
                 }), .cancel()
                 ])
             })
-            
             .navigationBarTitle("Library")
         }
         
     }
+    
     func delete(at offsets: IndexSet) {
         tracks.remove(atOffsets: offsets)
         if let savedData = try? NSKeyedArchiver.archivedData(withRootObject: tracks, requiringSecureCoding: false) {
-            let  defaults = UserDefaults.standard
+            let defaults = UserDefaults.standard
             defaults.set(savedData, forKey: UserDefaults.favouriteTrackKey)
-            
         }
     }
     
-    func delete(at offsets: SearchViewModel.Cell) {
+    func delete(track: SearchViewModel.Cell) {
         let index = tracks.firstIndex(of: track)
         guard let myIndex = index else { return }
         tracks.remove(at: myIndex)
         if let savedData = try? NSKeyedArchiver.archivedData(withRootObject: tracks, requiringSecureCoding: false) {
-            let  defaults = UserDefaults.standard
+            let defaults = UserDefaults.standard
             defaults.set(savedData, forKey: UserDefaults.favouriteTrackKey)
-            
         }
     }
 }
@@ -103,20 +111,23 @@ struct Library: View {
 struct LibraryCell: View {
     
     var cell: SearchViewModel.Cell
+    let urlImageService = URLImageService(fileStore: URLImageFileStore(),
+                                          inMemoryStore: URLImageInMemoryStore())
     var body: some View {
         HStack {
-            
             URLImage(URL(string: cell.iconUrlString ?? "")!) {image in image
                 .resizable()
                 .frame(width: 60, height: 60)
                 .cornerRadius(2)
-            }
+            }.environment(\.urlImageService, urlImageService)
             VStack(alignment: .leading) {
                 Text("\(cell.trackName)")
                 Text("\(cell.artistName)")
             }
         }
+        
     }
+    
 }
 
 struct Library_Previews: PreviewProvider {
@@ -126,6 +137,7 @@ struct Library_Previews: PreviewProvider {
 }
 
 extension Library: TrackMovingDelegate {
+    
     func moveBackForPreviousTrack() -> SearchViewModel.Cell? {
         let index = tracks.firstIndex(of: track)
         guard let myIndex = index else { return nil }
@@ -138,7 +150,7 @@ extension Library: TrackMovingDelegate {
         self.track = nextTrack
         return nextTrack
     }
-        
+    
     func moveForvardForPreviousTrack() -> SearchViewModel.Cell? {
         let index = tracks.firstIndex(of: track)
         guard let myIndex = index else { return nil }
