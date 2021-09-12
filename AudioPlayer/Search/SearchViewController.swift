@@ -8,14 +8,14 @@
 
 import UIKit
 
-protocol SearchDisplayLogic: class {
-    func displayData(viewModel: Search.Model.ViewModel.ViewModelData)
+protocol SearchDisplayLogic: AnyObject {
+  func displayData(viewModel: Search.Model.ViewModel.ViewModelData)
 }
 
 class SearchViewController: UIViewController, SearchDisplayLogic {
-    
-    var interactor: SearchBusinessLogic?
-    var router: (NSObjectProtocol & SearchRoutingLogic)?
+
+  var interactor: SearchBusinessLogic?
+  var router: (NSObjectProtocol & SearchRoutingLogic)?
     
     
     @IBOutlet weak var table: UITableView!
@@ -26,6 +26,7 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
     
     //вызываем footer
     private lazy var footerView = FooterView()
+    weak var tabBarDelegate: MainTabBarControllerDelegate?
     
     // MARK: Setup
     
@@ -50,9 +51,21 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        searchBar(searchController.searchBar, textDidChange: "red")
+        searchBar(searchController.searchBar, textDidChange: "billie")
         setupTableView()
         setupSearchBar()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let keyWindow = UIApplication.shared.connectedScenes.filter ({ $0.activationState == .foregroundActive
+        }).map({$0 as? UIWindowScene}).compactMap ({ $0
+        }).first?.windows.filter({$0.isKeyWindow}).first
+        
+        let tabBarVC = keyWindow?.rootViewController as? MainTabBarController
+        tabBarVC?.trackDetailView.delegate = self
+        
     }
     
     private func setupSearchBar() {
@@ -100,7 +113,6 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = table.dequeueReusableCell(withIdentifier: TrackCell.reuseId, for: indexPath) as! TrackCell
         
         let cellViewModel = searchViewModel.cells[indexPath.row]
-        
         cell.set(viewModel: cellViewModel)
         
         return cell
@@ -111,20 +123,15 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         let cellViewModel = searchViewModel.cells[indexPath.row]
         
-        let window = UIApplication.shared.keyWindow
-        let trackDetailsView = Bundle.main.loadNibNamed("TrackDetailView", owner: self, options: nil)?.first as! TrackDetailView
-        
-        trackDetailsView.set(viewModel: cellViewModel)
-        trackDetailsView.delegate = self
-        window?.addSubview(trackDetailsView)
+        self.tabBarDelegate?.maximizeTrackDetailController(viewModel: cellViewModel)
+
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let label = UILabel()
-        label.text = ""
+        label.text = "Please enter search term above..."
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
         return label
@@ -178,6 +185,4 @@ extension SearchViewController: TrackMovingDelegate {
     func moveForvardForPreviousTrack() -> SearchViewModel.Cell? {
         return getTrack(isForvardTrack: true)
     }
-    
-    
 }

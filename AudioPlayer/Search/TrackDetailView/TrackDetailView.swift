@@ -9,13 +9,14 @@ import UIKit
 import SDWebImage
 import AVKit
 
-protocol TrackMovingDelegate: class {
+protocol TrackMovingDelegate {
     func moveBackForPreviousTrack() -> SearchViewModel.Cell?
     func moveForvardForPreviousTrack() -> SearchViewModel.Cell?
 }
 
 class TrackDetailView: UIView {
     
+    @IBOutlet var miniPlayPauseButton: UIButton!
     @IBOutlet var trackImageView: UIImageView!
     @IBOutlet var currentTimeSlider: UISlider!
     @IBOutlet var currentTimeLabel: UILabel!
@@ -25,9 +26,16 @@ class TrackDetailView: UIView {
     @IBOutlet var playPauseButton: UIButton!
     @IBOutlet var volumeSlider: UISlider!
     
+    @IBOutlet var miniTrackView: UIView!
+    @IBOutlet var miniGoForvardButton: UIButton!
+    @IBOutlet var maxizedStackView: UIStackView!
+    @IBOutlet var miniTrackImageViev: UIImageView!
+    @IBOutlet var miniTrackTitleLabel: UILabel!
+    
     let player = AudioClass.shared.player
     
-    weak var delegate: TrackMovingDelegate?
+    var delegate: TrackMovingDelegate?
+    weak var tabBarDelegate: MainTabBarControllerDelegate?
     
     // MARK: - awakeFromNib
     
@@ -38,19 +46,98 @@ class TrackDetailView: UIView {
         trackImageView.transform = CGAffineTransform(scaleX: scale, y: scale)
         
         trackImageView.layer.cornerRadius = 5
+        
+        // Уменьшаем картинку Play у миниплеера
+        miniPlayPauseButton.imageEdgeInsets = .init(top: 11, left: 11, bottom: 11, right: 11)
+        
+        setupGestures()
     }
     // MARK: - Setup
     
     func set(viewModel: SearchViewModel.Cell) {
+        miniTrackTitleLabel.text = viewModel.trackName
         trackTitleLabel.text = viewModel.trackName
         authorTitleLabel.text = viewModel.artistName
         monitorStartTime()
         observeOlayerCurrentTime()
+        playPauseButton.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
+        miniPlayPauseButton.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
         AudioClass.shared.playTrack(previewUrl: viewModel.previeUrl)
         let string600 = viewModel.iconUrlString?.replacingOccurrences(of: "100x100", with: "600x600")
         guard let url = URL(string: string600 ?? "") else { return }
         trackImageView.sd_setImage(with: url, completed: nil)
+        miniTrackImageViev.sd_setImage(with: url, completed: nil)
     }
+    
+    private func setupGestures() {
+        
+        miniTrackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTapMaximized)))
+        miniTrackView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handlePan)))
+        addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handleDismissalPan)))
+    }
+    
+    // MARK: - Maximizing and minimizing gestures
+    
+    @objc private func handleTapMaximized() {
+        print("tapping to maximize")
+        self.tabBarDelegate?.maximizeTrackDetailController(viewModel: nil)
+    }
+    
+    @objc private func handlePan(gesture: UIPanGestureRecognizer) {
+        switch gesture.state {
+        case .began:
+            print("Began")
+        case .changed:
+            handlePanChanged(gesture: gesture)
+        case .ended:
+            handlePanEnded(gesture: gesture)
+        @unknown default:
+            print("unknown default")
+        }
+    }
+    
+    private func handlePanChanged(gesture: UIPanGestureRecognizer) {
+        let translation = gesture.translation(in: self.superview)
+        self.transform = CGAffineTransform(translationX: 0, y: translation.y)
+        
+        let newAlpha = 1 + translation.y / 200
+        self.miniTrackView.alpha = newAlpha < 0 ? 0 : newAlpha
+        self.maxizedStackView.alpha = -translation.y / 200
+    }
+    
+    private func handlePanEnded(gesture: UIPanGestureRecognizer) {
+        let translation = gesture.translation(in: self.superview)
+        let velocity = gesture.velocity(in: self.superview)
+        
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            self.transform = .identity
+            if translation.y < -200 || velocity.y < -500 {
+                self.tabBarDelegate?.maximizeTrackDetailController(viewModel: nil)
+            } else {
+                self.miniTrackView.alpha = 1
+                self.maxizedStackView.alpha = 0
+            }
+        }, completion: nil)
+    }
+    
+    @objc private func handleDismissalPan(gesture: UIPanGestureRecognizer) {
+        switch gesture.state {
+        case .changed:
+            let translation = gesture.translation(in: self.superview)
+            maxizedStackView.transform = CGAffineTransform(translationX: 0, y: translation.y)
+        case .ended:
+            let translation = gesture.translation(in: self.superview)
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseInOut, animations: {
+                self.maxizedStackView.transform = .identity
+                if translation.y > 50 {
+                    self.tabBarDelegate?.minimizeTrackDetailController()
+                }
+            }, completion: nil)
+        @unknown default:
+            print("unknown default")
+        }
+    }
+    
     // MARK: - Time Setup
     
     private func monitorStartTime() {
@@ -108,8 +195,9 @@ class TrackDetailView: UIView {
     // MARK: - @IBAction
     
     @IBAction func dragDownButtonTapped(_ sender: Any) {
-        self.removeFromSuperview()
-        AudioClass.shared.player.pause()
+        self.tabBarDelegate?.minimizeTrackDetailController()
+        //self.removeFromSuperview()
+        reduceTrackImageView()
     }
     
     @IBAction func handleCurrentTimeSlider(_ sender: Any) {
@@ -147,10 +235,12 @@ class TrackDetailView: UIView {
         if AudioClass.shared.player.timeControlStatus == .paused {
             AudioClass.shared.player.play()
             playPauseButton.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
+            miniPlayPauseButton.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
             enlargeTrackImageView()
         } else {
             AudioClass.shared.player.pause()
             playPauseButton.setImage(#imageLiteral(resourceName: "play"), for: .normal)
+            miniPlayPauseButton.setImage(#imageLiteral(resourceName: "play"), for: .normal)
             reduceTrackImageView()
         }
     }
