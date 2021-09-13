@@ -30,6 +30,7 @@
 		D48FC90A26EE20C4003A34D3 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = D48FC90926EE20C4003A34D3 /* URLImage */; };
 		D48FC90C26EE4A59003A34D3 /* NewLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48FC90B26EE4A59003A34D3 /* NewLibrary.swift */; };
 		D48FC90E26EE5934003A34D3 /* URLImageStore in Frameworks */ = {isa = PBXBuildFile; productRef = D48FC90D26EE5934003A34D3 /* URLImageStore */; };
+		D48FC91026EF023D003A34D3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D48FC90F26EF023D003A34D3 /* README.md */; };
 		D4A77F0E26E6629D002F263A /* SearchMusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A77F0D26E6629D002F263A /* SearchMusicViewController.swift */; };
 		D4A77F2726E67404002F263A /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A77F2626E67404002F263A /* Track.swift */; };
 		D4B4B79126E5060A00954FF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B4B79026E5060A00954FF0 /* AppDelegate.swift */; };
@@ -65,6 +66,7 @@
 		D47B9D2B26E9CC8E00E6DD16 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		D47B9D3026EA028000E6DD16 /* TrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
 		D48FC90B26EE4A59003A34D3 /* NewLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLibrary.swift; sourceTree = "<group>"; };
+		D48FC90F26EF023D003A34D3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D4A77F0D26E6629D002F263A /* SearchMusicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMusicViewController.swift; sourceTree = "<group>"; };
 		D4A77F2626E67404002F263A /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		D4B4B78D26E5060900954FF0 /* AudioPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -213,6 +215,7 @@
 				D4B4B79E26E5060B00954FF0 /* Info.plist */,
 				D47B9D2226E9C41700E6DD16 /* MainTabBarController.swift */,
 				D442901326EDC123006624D0 /* Library.swift */,
+				D48FC90F26EF023D003A34D3 /* README.md */,
 				D47B9D2426E9C48D00E6DD16 /* ViewController.swift */,
 				D47B9D2626E9C5EB00E6DD16 /* Helpers */,
 				D48FC90B26EE4A59003A34D3 /* NewLibrary.swift */,
@@ -292,6 +295,7 @@
 				D4B4B79D26E5060B00954FF0 /* LaunchScreen.storyboard in Resources */,
 				D442900C26EA65DC006624D0 /* TrackDetailView.xib in Resources */,
 				D4B4B79A26E5060B00954FF0 /* Assets.xcassets in Resources */,
+				D48FC91026EF023D003A34D3 /* README.md in Resources */,
 				D4C7C83526EDF90D009E5D85 /* TrackCell.xib in Resources */,
 				D47B9D2A26E9C6E000E6DD16 /* SearchViewController.storyboard in Resources */,
 				D47B9D2C26E9CC8E00E6DD16 /* Main.storyboard in Resources */,

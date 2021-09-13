@@ -19,32 +19,33 @@ struct Library: View {
     
     var body: some View {
         NavigationView {
-            VStack {
+            VStack() {
                 GeometryReader { geometry in
-                    HStack(spacing: 20) {
+                    HStack() {
                         Button(action: {
                             self.track = self.tracks[0]
                             self.tabBarDelegate?.maximizeTrackDetailController(viewModel: self.track)
                         }, label: {
                             Image(systemName: "play.fill")
-                                .frame(width: geometry.size.width / 2 - 10, height: 50)
                                 .accentColor(Color.init(#colorLiteral(red: 0.9921568627, green: 0.1764705882, blue: 0.3333333333, alpha: 1)))
+                                .frame(width: geometry.size.width / 2 - 10, height: 50)
                                 .background(Color.init(#colorLiteral(red: 0.9531342387, green: 0.9490900636, blue: 0.9562709928, alpha: 1)))
                                 .cornerRadius(10)
                         })
+                        Spacer()
                         Button(action: {
                             self.tracks = UserDefaults.standard.savedTracks()
                         }, label: {
                             Image(systemName: "arrow.2.circlepath")
-                                .frame(width: geometry.size.width / 2 - 10, height: 50)
                                 .accentColor(Color.init(#colorLiteral(red: 0.9921568627, green: 0.1764705882, blue: 0.3333333333, alpha: 1)))
+                                .frame(width: geometry.size.width / 2 - 10, height: 50)
                                 .background(Color.init(#colorLiteral(red: 0.9531342387, green: 0.9490900636, blue: 0.9562709928, alpha: 1)))
                                 .cornerRadius(10)
                         })
                     }
                 }.padding().frame(height: 70)
                 
-                List {
+                List() {
                     ForEach(tracks) { track in
                         LibraryCell(cell: track).gesture(
                             LongPressGesture()
@@ -75,8 +76,9 @@ struct Library: View {
                                                     }))
                     }
                     .onDelete(perform: delete)
-                    
+
                 }
+                
             }.actionSheet(isPresented: $showingAlert, content: {
                 ActionSheet(title: Text("Are you sure you want to delete this track?"), buttons: [.destructive(Text("Delete"), action: {
                     print("Deleting: \(self.track.trackName)")
