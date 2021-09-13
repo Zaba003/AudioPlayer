@@ -8,3 +8,6 @@
 - Alamofire
 - SDWebImage
 - URLImage for SwiftUI
+
+![alt text](screenshots/Library.png "Сохраненные треки")​
+![alt text](screenshots/Search.png "Поиск треков")​

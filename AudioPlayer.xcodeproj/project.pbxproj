@@ -31,6 +31,8 @@
 		D48FC90C26EE4A59003A34D3 /* NewLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48FC90B26EE4A59003A34D3 /* NewLibrary.swift */; };
 		D48FC90E26EE5934003A34D3 /* URLImageStore in Frameworks */ = {isa = PBXBuildFile; productRef = D48FC90D26EE5934003A34D3 /* URLImageStore */; };
 		D48FC91026EF023D003A34D3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D48FC90F26EF023D003A34D3 /* README.md */; };
+		D48FC91526EF0D53003A34D3 /* Search.png in Resources */ = {isa = PBXBuildFile; fileRef = D48FC91326EF0D53003A34D3 /* Search.png */; };
+		D48FC91626EF0D53003A34D3 /* Library.png in Resources */ = {isa = PBXBuildFile; fileRef = D48FC91426EF0D53003A34D3 /* Library.png */; };
 		D4A77F0E26E6629D002F263A /* SearchMusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A77F0D26E6629D002F263A /* SearchMusicViewController.swift */; };
 		D4A77F2726E67404002F263A /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A77F2626E67404002F263A /* Track.swift */; };
 		D4B4B79126E5060A00954FF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B4B79026E5060A00954FF0 /* AppDelegate.swift */; };
@@ -67,6 +69,8 @@
 		D47B9D3026EA028000E6DD16 /* TrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
 		D48FC90B26EE4A59003A34D3 /* NewLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLibrary.swift; sourceTree = "<group>"; };
 		D48FC90F26EF023D003A34D3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D48FC91326EF0D53003A34D3 /* Search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Search.png; sourceTree = "<group>"; };
+		D48FC91426EF0D53003A34D3 /* Library.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Library.png; sourceTree = "<group>"; };
 		D4A77F0D26E6629D002F263A /* SearchMusicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMusicViewController.swift; sourceTree = "<group>"; };
 		D4A77F2626E67404002F263A /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		D4B4B78D26E5060900954FF0 /* AudioPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -182,9 +186,19 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		D48FC91226EF0D3F003A34D3 /* Screenshots */ = {
+			isa = PBXGroup;
+			children = (
+				D48FC91426EF0D53003A34D3 /* Library.png */,
+				D48FC91326EF0D53003A34D3 /* Search.png */,
+			);
+			path = Screenshots;
+			sourceTree = "<group>";
+		};
 		D4B4B78426E5060900954FF0 = {
 			isa = PBXGroup;
 			children = (
+				D48FC91226EF0D3F003A34D3 /* Screenshots */,
 				D48FC90F26EF023D003A34D3 /* README.md */,
 				D4B4B78F26E5060900954FF0 /* AudioPlayer */,
 				D4B4B78E26E5060900954FF0 /* Products */,
@@ -293,8 +307,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4B4B79D26E5060B00954FF0 /* LaunchScreen.storyboard in Resources */,
+				D48FC91626EF0D53003A34D3 /* Library.png in Resources */,
 				D442900C26EA65DC006624D0 /* TrackDetailView.xib in Resources */,
 				D4B4B79A26E5060B00954FF0 /* Assets.xcassets in Resources */,
+				D48FC91526EF0D53003A34D3 /* Search.png in Resources */,
 				D48FC91026EF023D003A34D3 /* README.md in Resources */,
 				D4C7C83526EDF90D009E5D85 /* TrackCell.xib in Resources */,
 				D47B9D2A26E9C6E000E6DD16 /* SearchViewController.storyboard in Resources */,
