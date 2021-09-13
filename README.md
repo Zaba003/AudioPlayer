@@ -11,3 +11,5 @@
 
 ![alt text](Screenshots/Library.png "Сохраненные треки")​
 ![alt text](Screenshots/Search.png "Поиск треков")​
+![alt text](Screenshots/player.png "Основной плеер")​
+![alt text](Screenshots/miniPlayer.png "Мини плеер")​
