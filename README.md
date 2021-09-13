@@ -9,5 +9,5 @@
 - SDWebImage
 - URLImage for SwiftUI
 
-![alt text](screenshots/Library.png "Сохраненные треки")​
-![alt text](screenshots/Search.png "Поиск треков")​
+![alt text](Screenshots/Library.png "Сохраненные треки")​
+![alt text](Screenshots/Search.png "Поиск треков")​
