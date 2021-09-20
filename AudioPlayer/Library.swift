@@ -28,7 +28,7 @@ struct Library: View {
                         }, label: {
                             Image(systemName: "play.fill")
                                 .accentColor(Color.init(#colorLiteral(red: 0.9921568627, green: 0.1764705882, blue: 0.3333333333, alpha: 1)))
-                                .frame(width: geometry.size.width / 2 - 10, height: 50)
+                                .frame(width: UIScreen.main.bounds.width / 2 - 20, height: 50)
                                 .background(Color.init(#colorLiteral(red: 0.9531342387, green: 0.9490900636, blue: 0.9562709928, alpha: 1)))
                                 .cornerRadius(10)
                         })
@@ -38,7 +38,7 @@ struct Library: View {
                         }, label: {
                             Image(systemName: "arrow.2.circlepath")
                                 .accentColor(Color.init(#colorLiteral(red: 0.9921568627, green: 0.1764705882, blue: 0.3333333333, alpha: 1)))
-                                .frame(width: geometry.size.width / 2 - 10, height: 50)
+                                .frame(width: UIScreen.main.bounds.width / 2 - 20, height: 50)
                                 .background(Color.init(#colorLiteral(red: 0.9531342387, green: 0.9490900636, blue: 0.9562709928, alpha: 1)))
                                 .cornerRadius(10)
                         })
@@ -76,8 +76,8 @@ struct Library: View {
                                                     }))
                     }
                     .onDelete(perform: delete)
-
-                }
+                    
+                }.padding()
                 
             }.actionSheet(isPresented: $showingAlert, content: {
                 ActionSheet(title: Text("Are you sure you want to delete this track?"), buttons: [.destructive(Text("Delete"), action: {
